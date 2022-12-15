@@ -14,7 +14,7 @@ const db = new mysql.createConnection({
     user: config.BDD.user,
     database: config.BDD.database,
     // Timeout max db
-    connectTimeout: 10000,
+    connectTimeout: 660000,
 });
 
 
