@@ -31,7 +31,8 @@ services:
     container_name: phpmyadmin
 
   saturn:
-    build: .
+    build: 
+      context: .
     links:
       - db
     depends_on:
