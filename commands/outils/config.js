@@ -91,8 +91,7 @@ exports.run = async (bot, message, args) => {
                 message.delete({ timeout: 100});
                 message.channel.send({ embeds: [CATEGORYHS] });
 
-                connection.connect(
-                console.log('Connection établie'));
+                
 
                 connection.query(`UPDATE ticket SET category_hautstaff = '${arg[2]}' WHERE guildId = ${message.guild.id}`)
 
@@ -261,8 +260,7 @@ exports.run = async (bot, message, args) => {
                 message.delete({ timeout: 100});
                 message.channel.send({ embeds: [CATEGORY] });
 
-                connection.connect(
-                console.log('Connection établie'));
+                
 
                 connection.query(`UPDATE guildconfigurable SET logs = '${arg[2]}' WHERE guildId = ${message.guild.id}`)
 
