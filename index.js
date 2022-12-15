@@ -12,8 +12,12 @@ const db = new mysql.createConnection({
     port: config.BDD.port,
     password: config.BDD.password,
     user: config.BDD.user,
-    database: config.BDD.database
+    database: config.BDD.database,
+    // Timeout max db
+    connectTimeout: 10000,
 });
+
+
 
 db.connect(function (err) {
     if(err) throw err;
