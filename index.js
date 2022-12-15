@@ -13,8 +13,6 @@ const db = new mysql.createConnection({
     password: config.BDD.password,
     user: config.BDD.user,
     database: config.BDD.database,
-    // Timeout max db
-    connectTimeout: 660000,
 });
 
 
