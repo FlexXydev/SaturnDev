@@ -29,6 +29,7 @@ services:
     networks:
       - saturn
     container_name: phpmyadmin
+    
 
   saturn:
     build: .
