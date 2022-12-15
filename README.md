@@ -5,7 +5,7 @@ Saturn est un bot discord français. Il peut être utilisé pour un serveur comm
 
 Prefix: s!
 
-- s!help permet d'avoir la liste des bots discord
+- s!help permet d'avoir la liste des commandes du bots discord
 
 # Requierment
 
