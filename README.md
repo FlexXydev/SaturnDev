@@ -3,9 +3,31 @@ Saturn est un bot discord français. Il peut être utilisé pour un serveur comm
 
 # Commands
 
-Prefix: s!
+Default prefix: s!
 
-- s!help permet d'avoir la liste des commandes du bots discord
+# 🔧 Configuration
+
+🔧 - Général
+prefix - suggest
+
+📩 - Ticket
+
+channel-ticket - category - category-hautstaff - category-staff - category-autres - roles-ticket
+
+# 💬 - Général
+
+help - ping - userinfo
+
+# 🛑 - Modération
+
+ban <member> <raison> - mute <member> <time> - kick <member> <raison> - clear <nb de message à clear> - tempban <member> <time> <raison> - unmute <member> <time> <raison>
+
+# 🔧 Outils
+
+config
+
+💌 - Ticket
+add, close, rename, ticket
 
 # Requierment
 
