@@ -1,0 +1,18 @@
+{
+    "client": {
+        "activity": "Phase de test",
+        "name": "Saturn",
+        "logo": "https://cdn.discordapp.com/avatars/945224613057683516/ec1f0776d591952a4d020362b4192056.webp",
+        "prefix":"s!"
+    },
+
+    "BDD": {
+        "host": "db",
+        "port":"3306",
+        "password": "root",
+        "user": "root",
+        "database": "botdiscord"
+    },
+
+    "token": "OTQ1MjI0NjEzMDU3NjgzNTE2.GDalM-.o22cFsmP4frEmSp13yEIrlSNidTo2cRYeWTV58"
+}

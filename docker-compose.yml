@@ -1,0 +1,47 @@
+version: '3'
+
+services:
+  db:
+    image: mariadb:10.3
+    container_name: db
+    restart: always
+    command: --default-authentication-plugin=mysql_native_password && --wait_timeout=28800
+
+    environment:
+    - MYSQL_ROOT_PASSWORD="root"
+    - MYSQL_DATABASE="botdiscord"
+    - MYSQL_PASSWORD="root"
+    - MYSQL_USER="botdiscord"
+    volumes:
+      - dbdata:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - saturn
+
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - "9500:9500"
+    environment:
+      - PMA_ARBITRARY=1
+    networks:
+      - saturn
+    container_name: phpmyadmin
+
+  saturn:
+    build: .
+    links:
+      - db
+    depends_on:
+      - db
+    networks:
+      - saturn
+    container_name: Botdiscord
+
+volumes:
+  dbdata:
+
+networks:
+  saturn:
