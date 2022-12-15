@@ -4,14 +4,13 @@ const mysql = require('mysql');
 
 
 // Connexion BDD
-const db = new mysql.createConnection({
+const connection = new mysql.createConnection({
     host: config.BDD.host,
     port: config.BDD.port,
     password: config.BDD.password,
     user: config.BDD.user,
     database: config.BDD.database
 });
-
 
 // Infos
 exports.help = {
@@ -60,7 +59,14 @@ exports.run = async (bot, message, args) => {
                 message.delete({ timeout: 100});
                 message.channel.send({ embeds: [TICKET] });
 
-                db.query(`UPDATE ticket SET channel_ticket = '${arg[2]}' WHERE guildId = ${message.guild.id}`)
+                
+
+            connection.query(`UPDATE ticket SET channel_ticket = '${arg[2]}' WHERE guildId = ${message.guild.id}`)
+
+                
+                connection.end(
+                    console.log('Deconnection db effectué')
+                )
             }
         } else if (arg[1] == "category-hautstaff"){
             if(!arg[2]){
@@ -85,7 +91,11 @@ exports.run = async (bot, message, args) => {
                 message.delete({ timeout: 100});
                 message.channel.send({ embeds: [CATEGORYHS] });
 
-                db.query(`UPDATE ticket SET category_hautstaff = '${arg[2]}' WHERE guildId = ${message.guild.id}`)
+                connection.connect(
+                console.log('Connection établie'));
+
+                connection.query(`UPDATE ticket SET category_hautstaff = '${arg[2]}' WHERE guildId = ${message.guild.id}`)
+
             }
         } else if (arg[1] == "category-staff"){
             if(!arg[2]){
@@ -110,7 +120,10 @@ exports.run = async (bot, message, args) => {
                 message.delete({ timeout: 100});
                 message.channel.send({ embeds: [CATEGORYSTAFF] });
 
-                db.query(`UPDATE ticket SET category_staff = '${arg[2]}' WHERE guildId = ${message.guild.id}`)
+                
+
+                connection.query(`UPDATE ticket SET category_staff = '${arg[2]}' WHERE guildId = ${message.guild.id}`)
+
             }
         } else if (arg[1] == "category-autres"){
             if(!arg[2]){
@@ -135,7 +148,10 @@ exports.run = async (bot, message, args) => {
                 message.delete({ timeout: 100});
                 message.channel.send({ embeds: [CATEGORYAUTRES] });
 
-                db.query(`UPDATE ticket SET category_autres = '${arg[2]}' WHERE guildId = ${message.guild.id}`)
+                
+
+                connection.query(`UPDATE ticket SET category_autres = '${arg[2]}' WHERE guildId = ${message.guild.id}`)
+
             }
         } else if (arg[1] == "roles-ticket"){
             if(!arg[2]){
@@ -160,7 +176,10 @@ exports.run = async (bot, message, args) => {
                 message.delete({ timeout: 100});
                 message.channel.send({ embeds: [ROLES] });
 
-                db.query(`UPDATE ticket SET roles = '${arg[2]}' WHERE guildId = ${message.guild.id}`)
+                
+
+                connection.query(`UPDATE ticket SET roles = '${arg[2]}' WHERE guildId = ${message.guild.id}`)
+
             }
         } else if (arg[1] == "category"){
             if(!arg[2]){
@@ -185,7 +204,11 @@ exports.run = async (bot, message, args) => {
                 message.delete({ timeout: 100});
                 message.channel.send({ embeds: [CATEGORY] });
 
-                db.query(`UPDATE ticket SET category = '${arg[2]}' WHERE guildId = ${message.guild.id}`)
+                
+
+                connection.query(`UPDATE ticket SET category = '${arg[2]}' WHERE guildId = ${message.guild.id}`)
+
+
             }
         } else if (arg[1] == "prefix"){
             if(!arg[2]){
@@ -210,7 +233,10 @@ exports.run = async (bot, message, args) => {
                 message.delete({ timeout: 100});
                 message.channel.send({ embeds: [CATEGORY] });
 
-                db.query(`UPDATE guildconfigurable SET cmdPrefix = '${arg[2]}' WHERE guildId = ${message.guild.id}`)
+                
+
+                connection.query(`UPDATE guildconfigurable SET cmdPrefix = '${arg[2]}' WHERE guildId = ${message.guild.id}`)
+
             }
         } else if (arg[1] == "logs"){
             if(!arg[2]){
@@ -235,7 +261,15 @@ exports.run = async (bot, message, args) => {
                 message.delete({ timeout: 100});
                 message.channel.send({ embeds: [CATEGORY] });
 
-                db.query(`UPDATE guildconfigurable SET logs = '${arg[2]}' WHERE guildId = ${message.guild.id}`)
+                connection.connect(
+                console.log('Connection établie'));
+
+                connection.query(`UPDATE guildconfigurable SET logs = '${arg[2]}' WHERE guildId = ${message.guild.id}`)
+
+                
+                
+
+
             }
         } else if (arg[1] == "suggest"){
             if(!arg[2]){
@@ -260,7 +294,12 @@ exports.run = async (bot, message, args) => {
                 message.delete({ timeout: 100});
                 message.channel.send({ embeds: [CATEGORY] });
 
-                db.query(`UPDATE guildconfigurable SET suggest = '${arg[2]}' WHERE guildId = ${message.guild.id}`)
+                
+
+                connection.query(`UPDATE guildconfigurable SET suggest = '${arg[2]}' WHERE guildId = ${message.guild.id}`)
+
+                
+                
             }
         } else if (arg[1] == "bvn"){
             if(!arg[2]){
@@ -285,7 +324,12 @@ exports.run = async (bot, message, args) => {
                 message.delete({ timeout: 100});
                 message.channel.send({ embeds: [CATEGORY] });
 
-                db.query(`UPDATE guildconfigurable SET bienvenue = '${arg[2]}' WHERE guildId = ${message.guild.id}`)
+                
+
+                connection.query(`UPDATE guildconfigurable SET bienvenue = '${arg[2]}' WHERE guildId = ${message.guild.id}`)
+
+                
+                
             }
         } else if (arg[1] == "quit"){
             if(!arg[2]){
@@ -310,7 +354,8 @@ exports.run = async (bot, message, args) => {
                 message.delete({ timeout: 100});
                 message.channel.send({ embeds: [CATEGORY] });
 
-                db.query(`UPDATE guildconfigurable SET quit = '${arg[2]}' WHERE guildId = ${message.guild.id}`)
+                connection.query(`UPDATE guildconfigurable SET quit = '${arg[2]}' WHERE guildId = ${message.guild.id}`)
+     
             }
         }
     } else {

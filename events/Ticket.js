@@ -3,7 +3,7 @@ const mysql = require('mysql');
 const { MessageSelectMenu, MessageEmbed, MessageActionRow, MessageButton } = require("discord.js");
 
 // Connexion BDD
-const db = new mysql.createConnection({
+const connection = new mysql.createConnection({
   host: config.BDD.host,
   port: config.BDD.port,
   password: config.BDD.password,
@@ -14,7 +14,11 @@ const db = new mysql.createConnection({
 module.exports = {
     name: 'interactionCreate',
     execute(interaction, client) {
-      db.query(`SELECT * FROM ticket WHERE guildId = "${interaction.guild.id}"`, async (err, req) => {
+      connection.connect(
+console.log('Connection établie')
+);
+
+connection.query(`SELECT * FROM ticket WHERE guildId = "${interaction.guild.id}"`, async (err, req) => {
         const roles = req[0].roles;
         const category = req[0].category;
         const category_hautstaff = req[0].category_hautstaff;

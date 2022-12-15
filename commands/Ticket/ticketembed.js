@@ -4,7 +4,7 @@ const mysql = require('mysql');
 
 
 // Connexion BDD
-const db = new mysql.createConnection({
+const connection = new mysql.createConnection({
     host: config.BDD.host,
     port: config.BDD.port,
     password: config.BDD.password,
@@ -21,7 +21,11 @@ exports.help = {
 
 exports.run = async (bot, message, args) => {
     if (message.member.permissions.has(['ADMINISTRATOR'] || [])) {
-        db.query(`SELECT * FROM ticket WHERE guildId = "${message.guild.id}"`, (err, req) => {
+        connection.connect(
+console.log('Connection établie')
+);
+
+connection.query(`SELECT * FROM ticket WHERE guildId = "${message.guild.id}"`, (err, req) => {
             const channel = req[0].channel_ticket;
 
             message.delete()

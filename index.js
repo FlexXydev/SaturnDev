@@ -7,7 +7,7 @@ bot.commands = new Collection();
 
 
 // Connexion DB
-const db = new mysql.createConnection({
+const connection = new mysql.createConnection({
     host: config.BDD.host,
     port: config.BDD.port,
     password: config.BDD.password,
@@ -17,7 +17,7 @@ const db = new mysql.createConnection({
 
 
 
-db.connect(function (err) {
+connection.connect(function (err) {
     if(err) throw err;
 
     console.log(`Connection à la database ${config.BDD.database} réussi !`)
@@ -77,13 +77,25 @@ eventSubFolders.forEach(folder => {
 
 // Bot sur plusieur serveur
 bot.on("guildCreate", guild => {
-    db.query(
+    connection.connect(
+console.log('Connection établie')
+);
+
+connection.query(
         `INSERT INTO guilds(guildId, guildOwnerId, guildName) VALUES ("${guild.id}", "${guild.ownerId}", "${guild.name}")`
     )
-    db.query(
+    connection.connect(
+console.log('Connection établie')
+);
+
+connection.query(
         `INSERT INTO guildconfigurable(guildId) VALUES ("${guild.id}")`
     )
-    db.query(
+    connection.connect(
+console.log('Connection établie')
+);
+
+connection.query(
         `INSERT INTO ticket(guildId, guildOwnerId) VALUES ("${guild.id}", "${guild.ownerId}")`
     )
 });

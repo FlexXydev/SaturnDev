@@ -40,7 +40,6 @@ services:
     networks:
       - saturn
     container_name: Botdiscord
-    restart: always
 
 volumes:
   dbdata:

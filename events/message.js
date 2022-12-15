@@ -2,7 +2,7 @@ const mysql = require('mysql');
 const config = require('../config.json')
 
 // Connexion DB
-const db = new mysql.createConnection({
+const connection = new mysql.createConnection({
     host: config.BDD.host,
     port: config.BDD.port,
     password: config.BDD.password,
@@ -13,6 +13,10 @@ const db = new mysql.createConnection({
 module.exports= {
     name: 'messageCreate',
     execute(message) {
-        db.query(`INSERT INTO message (guildId, userId, message) VALUES ("${message.guild.id}", "${message.author.id}", "${message.content}")`)
+        connection.connect(
+console.log('Connection établie')
+);
+
+connection.query(`INSERT INTO message (guildId, userId, message) VALUES ("${message.guild.id}", "${message.author.id}", "${message.content}")`)
     }
 }

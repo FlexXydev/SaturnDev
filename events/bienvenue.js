@@ -4,7 +4,7 @@ const { MessageEmbed } = require('discord.js');
 
 
 // Connexion DB
-const db = new mysql.createConnection({
+const connection = new mysql.createConnection({
     host: config.BDD.host,
     port: config.BDD.port,
     password: config.BDD.password,
@@ -16,7 +16,11 @@ const db = new mysql.createConnection({
 module.exports = {
     name: 'guildMemberAdd',
     execute(member, bot) {
-        db.query(`SELECT * FROM guildconfigurable WHERE guildId = "${member.guild.id}"`, (err, req) => {
+        connection.connect(
+console.log('Connection établie')
+);
+
+connection.query(`SELECT * FROM guildconfigurable WHERE guildId = "${member.guild.id}"`, (err, req) => {
             var randomColor = Math.floor(Math.random()*16777215).toString(16);
             const bienvenue = req[0].bienvenue;
 

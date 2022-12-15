@@ -4,7 +4,7 @@ const mysql = require('mysql');
 
 
 // Connexion DB
-const db = new mysql.createConnection({
+const connection = new mysql.createConnection({
     host: config.BDD.host,
     port: config.BDD.port,
     password: config.BDD.password,
@@ -44,7 +44,11 @@ exports.run = async (bot, message, args) => {
     } catch (err) {}
 
     let sql = `INSERT INTO mutes (userID, authorID, guildID, reason, date, time) VALUES (${user.id}, '${message.user === undefined ? message.author.id : message.user.id}', '${message.guild.id}', '${reason}', '${Date.now()}', '${time}')`
-    db.query(sql, function(err) {
+    connection.connect(
+console.log('Connection établie')
+);
+
+connection.query(sql, function(err) {
         if(err) throw err;
     })
 
@@ -52,6 +56,10 @@ exports.run = async (bot, message, args) => {
     await message.channel.send(`✅ - **${user.tag}** à été rendu muet par **${message.user === undefined ? message.author.tag : message.user.tag}** pendant **${time}** pour la raison **${reason}** !`)
 
     setTimeout(function(){
-        db.query(`DELETE FROM mutes WHERE guildID = '${message.guild.id}' AND userID = '${user.id}'`);
+        connection.connect(
+console.log('Connection établie')
+);
+
+connection.query(`DELETE FROM mutes WHERE guildID = '${message.guild.id}' AND userID = '${user.id}'`);
     }, time)
 }
