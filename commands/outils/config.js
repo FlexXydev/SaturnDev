@@ -64,9 +64,7 @@ exports.run = async (bot, message, args) => {
             connection.query(`UPDATE ticket SET channel_ticket = '${arg[2]}' WHERE guildId = ${message.guild.id}`)
 
                 
-                connection.end(
-                    console.log('Deconnection db effectué')
-                )
+
             }
         } else if (arg[1] == "category-hautstaff"){
             if(!arg[2]){
