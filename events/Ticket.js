@@ -15,7 +15,8 @@ module.exports = {
     name: 'interactionCreate',
     execute(interaction, client) {
       connection.connect(
-
+console.log('Connection établie')
+);
 
 connection.query(`SELECT * FROM ticket WHERE guildId = "${interaction.guild.id}"`, async (err, req) => {
         const roles = req[0].roles;

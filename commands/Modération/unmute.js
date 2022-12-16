@@ -39,7 +39,8 @@ exports.run = async (bot, message, args) => {
     message.channel.send(`<@${message.author.id}> à rendu la parole de **${user.tag}**.`)
 
     connection.connect(
-
+console.log('Connection établie')
+);
 
 connection.query(`DELETE FROM mutes WHERE guildID = '${message.guild.id}' AND userID = '${user.id}'`);
 }

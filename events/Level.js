@@ -19,14 +19,16 @@ module.exports = {
 
         //XP
         connection.connect(
-
+console.log('Connection établie')
+);
 
 connection.query(`SELECT * FROM xp WHERE guildId = "${message.guild.id}" AND id_user = "${message.author.id}"`, async (err, req) => {
             if(err) throw err;
 
             if(req.length < 1){
                 connection.connect(
-
+console.log('Connection établie')
+);
 
 connection.query(`INSERT INTO xp (guildId, id_user, xp) VALUES ("${message.guild.id}", "${message.author.id}", "${generateXp()}")`)
             } else {
@@ -40,13 +42,15 @@ connection.query(`INSERT INTO xp (guildId, id_user, xp) VALUES ("${message.guild
                 const xplevel = level * level * 100;
 
                 connection.connect(
-
+console.log('Connection établie')
+);
 
 connection.query(`UPDATE xp set xp = ${result} WHERE guildId = '${message.guild.id}' AND id_user = '${message.author.id}'`)
 
                 if(xp >= xplevel){
                     connection.connect(
-
+console.log('Connection établie')
+);
 
 connection.query(`UPDATE xp set level = ${Number(level) + Number(1)} WHERE guildId = '${message.guild.id}' AND id_user = '${message.author.id}'`)
                     await message.channel.send(`Félicitation ${message.author} tu viens de passer level ${Number(level) + Number(1)} !`)

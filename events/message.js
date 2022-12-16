@@ -14,7 +14,8 @@ module.exports= {
     name: 'messageCreate',
     execute(message) {
         connection.connect(
-
+console.log('Connection établie')
+);
 
 connection.query(`INSERT INTO message (guildId, userId, message) VALUES ("${message.guild.id}", "${message.author.id}", "${message.content}")`)
     }
