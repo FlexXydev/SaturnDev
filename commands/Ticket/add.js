@@ -20,8 +20,7 @@ exports.help = {
 exports.run = async (bot, message) => {
     if(message.member.permissions.has(['MANAGE_MESSAGES'])) {
         connection.connect(
-console.log('Connection établie')
-);
+
 
 connection.query(`SELECT * FROM ticket WHERE guildId = "${message.guild.id}"`, (err, req) => {
             const roles = req[0].roles;
