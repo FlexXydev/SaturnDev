@@ -16,9 +16,7 @@ const connection = new mysql.createConnection({
 module.exports = {
     name: 'guildMemberAdd',
     execute(member, bot) {
-        connection.connect(
-console.log('Connection établie')
-);
+    
 
 connection.query(`SELECT * FROM guildconfigurable WHERE guildId = "${member.guild.id}"`, (err, req) => {
             var randomColor = Math.floor(Math.random()*16777215).toString(16);

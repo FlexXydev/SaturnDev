@@ -15,9 +15,7 @@ const connection = new mysql.createConnection({
 module.exports= {
     name: 'messageDelete',
     execute(message, bot) {
-        connection.connect(
-console.log('Connection établie')
-);
+    
 
 connection.query(`SELECT * FROM guildconfigurable WHERE guildId = "${message.guild.id}"`, (err, req) => {
             const channel = req[0].logs;

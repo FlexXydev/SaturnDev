@@ -77,23 +77,17 @@ eventSubFolders.forEach(folder => {
 
 // Bot sur plusieur serveur
 bot.on("guildCreate", guild => {
-    connection.connect(
-console.log('Connection établie')
-);
+
 
 connection.query(
         `INSERT INTO guilds(guildId, guildOwnerId, guildName) VALUES ("${guild.id}", "${guild.ownerId}", "${guild.name}")`
     )
-    connection.connect(
-console.log('Connection établie')
-);
+
 
 connection.query(
         `INSERT INTO guildconfigurable(guildId) VALUES ("${guild.id}")`
     )
-    connection.connect(
-console.log('Connection établie')
-);
+
 
 connection.query(
         `INSERT INTO ticket(guildId, guildOwnerId) VALUES ("${guild.id}", "${guild.ownerId}")`

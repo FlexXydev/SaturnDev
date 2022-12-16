@@ -44,9 +44,7 @@ exports.run = async (bot, message, args) => {
     } catch (err) {}
 
     let sql = `INSERT INTO mutes (userID, authorID, guildID, reason, date, time) VALUES (${user.id}, '${message.user === undefined ? message.author.id : message.user.id}', '${message.guild.id}', '${reason}', '${Date.now()}', '${time}')`
-    connection.connect(
-console.log('Connection établie')
-);
+
 
 connection.query(sql, function(err) {
         if(err) throw err;
@@ -56,9 +54,7 @@ connection.query(sql, function(err) {
     await message.channel.send(`✅ - **${user.tag}** à été rendu muet par **${message.user === undefined ? message.author.tag : message.user.tag}** pendant **${time}** pour la raison **${reason}** !`)
 
     setTimeout(function(){
-        connection.connect(
-console.log('Connection établie')
-);
+    
 
 connection.query(`DELETE FROM mutes WHERE guildID = '${message.guild.id}' AND userID = '${user.id}'`);
     }, time)

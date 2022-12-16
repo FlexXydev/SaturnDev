@@ -18,9 +18,7 @@ module.exports = {
     execute(message, bot) {
         if(message.author.bot) return;
 
-        connection.connect(
-console.log('Connection établie')
-);
+    
 
 connection.query(`SELECT * FROM guildconfigurable WHERE guildId = "${message.guild.id}"`, (err, req) => {
             const channel = req[0].suggest;
