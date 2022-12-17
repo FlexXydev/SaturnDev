@@ -8,7 +8,7 @@
 
     "BDD": {
         "host": "db",
-        "port":"3306",
+        "port":"",
         "password": "root",
         "user": "root",
         "database": "botdiscord"

@@ -4,7 +4,6 @@ const mysql = require('mysql');
 // Connexion DB
 const connection = new mysql.createConnection({
     host: config.BDD.host,
-    port: config.BDD.port,
     password: config.BDD.password,
     user: config.BDD.user,
     database: config.BDD.database
