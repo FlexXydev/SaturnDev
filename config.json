@@ -1,9 +1,10 @@
 {
     "client": {
-        "activity": "Phase de test",
+        "activity": "In test phase. If you wont more info, check this link",
         "name": "Saturn",
         "logo": "https://cdn.discordapp.com/avatars/945224613057683516/ec1f0776d591952a4d020362b4192056.webp",
-        "prefix":"s!"
+        "prefix":"s!",
+        "url":"https://discord.gg/GvtNRDAZDa"
     },
 
     "BDD": {

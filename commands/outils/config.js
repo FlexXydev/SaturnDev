@@ -11,6 +11,8 @@ const connection = new mysql.createConnection({
     database: config.BDD.database
 });
 
+
+
 // Infos
 exports.help = {
     name:"config"

@@ -10,6 +10,6 @@ module.exports = {
         console.log(`Le bot est utilisé sur ${bot.guilds.cache.size} serveurs !`)
 
         // Presence
-        bot.user.setPresence({ activities: [{ name: config.client.activity, type: 'WATCHING' }] })
+        bot.user.setPresence({ activities: [{ name: config.client.activity, type: 'WATCHING'}], status: 'dnd'})
     }
 }
