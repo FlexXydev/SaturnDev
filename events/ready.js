@@ -1,4 +1,5 @@
 const config = require('../config.json');
+const discordjs = require('discord.js')
 
 
 module.exports = {
@@ -6,10 +7,29 @@ module.exports = {
     once: true,
     execute(bot) {
         // Login message
-        console.log(`Connectés à ${bot.user.username}`)
-        console.log(`Le bot est utilisé sur ${bot.guilds.cache.size} serveurs !`)
+        console.log(`✅ | Connectés à ${bot.user.username}`)
+        console.log(`🤖 | Le bot est utilisé sur ${bot.guilds.cache.size} serveurs !`)
 
+<<<<<<< Updated upstream
         // Presence
         bot.user.setPresence({ activities: [{ name: config.client.activity, type: 'WATCHING' }] })
+=======
+        // Presence boucle 3 min    
+        let currentActivity = 0;
+        let maxActivity = 1;
+
+    setInterval(async () => {
+        currentActivity++;
+        if (currentActivity > maxActivity) {currentActivity = 0};
+        switch(currentActivity) {
+            case 0:
+                bot.user.setActivity(config.client.activityfr)
+                break;
+            case 1:
+                bot.user.setActivity(config.client.activityen)
+                break;
+        };
+    }, 60000);
+>>>>>>> Stashed changes
     }
-}
+    }
