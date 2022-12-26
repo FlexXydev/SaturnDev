@@ -1,6 +1,7 @@
 {
     "client": {
-        "activity": "In test phase. If you wont more info, check this link",
+        "activity en": "In test phase.",
+        "activity fr":" En phase de test.",
         "name": "Saturn",
         "logo": "https://cdn.discordapp.com/avatars/945224613057683516/ec1f0776d591952a4d020362b4192056.webp",
         "prefix":"s!",
