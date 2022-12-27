@@ -10,9 +10,6 @@ module.exports = {
         console.log(`✅ | Connectés à ${bot.user.username}`)
         console.log(`🤖 | Le bot est utilisé sur ${bot.guilds.cache.size} serveurs !`)
 
-<<<<<<< Updated upstream
-        // Presence
-        bot.user.setPresence({ activities: [{ name: config.client.activity, type: 'WATCHING' }] })
 =======
         // Presence boucle 3 min    
         let currentActivity = 0;
