@@ -1,12 +1,9 @@
 {
     "client": {
-<<<<<<< Updated upstream
         "activity": "Phase de test",
-=======
         "status":"dnd",
         "activityfr": "En Phase de test.",
         "activityen":"In test phase.",
->>>>>>> Stashed changes
         "name": "Saturn",
         "logo": "https://cdn.discordapp.com/avatars/945224613057683516/ec1f0776d591952a4d020362b4192056.webp",
         "prefix":"s!"
