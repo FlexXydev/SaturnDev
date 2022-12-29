@@ -1,20 +1,21 @@
 {
     "client": {
-        "activity en": "In test phase.",
-        "activity fr":" En phase de test.",
+        "activity": "Loading ...",
+        "status":"dnd",
+        "activityfr": "En Phase de test.",
+        "activityen":"In test phase.",
         "name": "Saturn",
         "logo": "https://cdn.discordapp.com/avatars/945224613057683516/ec1f0776d591952a4d020362b4192056.webp",
-        "prefix":"s!",
-        "url":"https://discord.gg/GvtNRDAZDa"
+        "prefix":"s!"
     },
 
     "BDD": {
         "host": "db",
-        "port":"",
+        "port":"3306",
         "password": "root",
         "user": "root",
         "database": "botdiscord"
     },
 
-    "token": "OTQ1MjI0NjEzMDU3NjgzNTE2.GDalM-.o22cFsmP4frEmSp13yEIrlSNidTo2cRYeWTV58"
+    "token": "OTQ1MjI0NjEzMDU3NjgzNTE2.GzOzUA.7LPHyBcX9f-yBFHLNCLvT75oMyrD4I03b-mXuQ"
 }
