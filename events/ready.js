@@ -20,9 +20,11 @@ module.exports = {
         switch(currentActivity) {
             case 0:
                 bot.user.setActivity(config.client.activityfr)
+                console.log('👍 | Activité changé en Français')
                 break;
             case 1:
                 bot.user.setActivity(config.client.activityen)
+                console.log('👍 | Activité changé en Français')
                 break;
         };
     }, 30000);
