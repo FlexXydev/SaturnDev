@@ -24,7 +24,7 @@ module.exports = {
                 break;
             case 1:
                 bot.user.setActivity(config.client.activityen)
-                console.log('👍 | Activité changé en Français')
+                console.log('👍 | Activité changé en Anglais')
                 break;
         };
     }, 30000);
