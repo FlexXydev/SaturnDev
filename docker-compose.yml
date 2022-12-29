@@ -33,6 +33,7 @@ services:
   saturn:
     build: 
       context: .
+    restart: always
     links:
       - db
     depends_on:
