@@ -25,6 +25,6 @@ module.exports = {
                 bot.user.setActivity(config.client.activityen)
                 break;
         };
-    }, 60000);
+    }, 30000);
     }
     }
