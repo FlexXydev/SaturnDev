@@ -11,14 +11,14 @@ module.exports = {
         console.log(`✅ | Connectés à ${bot.user.username}`)
         console.log(`🤖 | Le bot est utilisé sur ${bot.guilds.cache.size} serveurs !`)
 
-        // Activité 
+        // Activité temporaire
         console.log('⏱ | Les activtés sont entrains de charger. Lancement du status temporaire')
         bot.user.setPresence({ activities: [{ name: config.client.activity, type: 'WATCHING'}], status: 'dnd'})
 
-        // Presence boucle 3 min    
+        // Activité boucle 30s   
         let currentActivity = 0;
         let maxActivity = 1;
-
+    
     setInterval(async () => {
         currentActivity++;
         if (currentActivity > maxActivity) {currentActivity = 0};
