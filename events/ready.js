@@ -1,5 +1,6 @@
 const config = require('../config.json');
-const discordjs = require('discord.js')
+const discordjs = require('discord.js');
+let now = new Date();
 
 
 module.exports = {
@@ -11,8 +12,8 @@ module.exports = {
         console.log(`🤖 | Le bot est utilisé sur ${bot.guilds.cache.size} serveurs !`)
 
         // Activité 
-
-        bot.user.setStatus('dnd');
+        console.log('⏱ | Les activtés sont entrains de charger. Lancement du status temporaire')
+        bot.user.setPresence({ activities: [{ name: config.client.activity, type: 'WATCHING'}], status: 'dnd'})
 
         // Presence boucle 3 min    
         let currentActivity = 0;
@@ -32,5 +33,10 @@ module.exports = {
                 break;
         };
     }, 30000);
+
+    setInterval(function() {
+        console.log("❗ | Le bot va être déconnecter car ça fais 10 minutes que le bot est lançé");
+      }, 574800);
+      
     }
     }
