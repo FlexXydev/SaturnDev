@@ -35,7 +35,7 @@ module.exports = {
     }, 30000);
 
     setInterval(function() {
-        console.log("❗ | Le bot va être déconnecter car ça fais 10 minutes que le bot est lançé");
+        console.log("❗ | Le bot va être déconnecter car ça fais 10 minutes que le bot est lancé");
       }, 574800);
       
     }

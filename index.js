@@ -37,7 +37,7 @@ commandSubFolders.forEach(folder => {
     
     for (const file of commandFiles) {
         const props = require(`./commands/${folder}/${file}`)
-        console.log(`La commandes ${file} est chargée avec succès depuis ${folder} !`)
+        console.log(`🎊 | La commandes ${file} est chargée avec succès depuis ${folder} !`)
         bot.commands.set(props.help.name, props)
     }
 })
