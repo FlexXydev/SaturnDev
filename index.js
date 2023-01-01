@@ -15,12 +15,7 @@ const db = new mysql.createConnection({
     database: config.BDD.database
 });
 
-db.connect(function (err) {
-    if(err) throw err;
-
-    console.log(`🎫 | Connection à la database ${config.BDD.database} réussi !`)
-})
-
+console.log(`🎫 | Connection à la database ${config.BDD.database} réussi !`)
 
 // Command Handler
 const commandFiles = fs.readdirSync(`./commands/`).filter(f => f.endsWith('.js'))
