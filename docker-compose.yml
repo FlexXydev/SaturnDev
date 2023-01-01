@@ -32,7 +32,9 @@ services:
     
 
   saturn:
-    build: .
+    build: 
+      context: .
+    restart: always
     links:
       - db
     depends_on:
