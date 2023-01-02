@@ -15,20 +15,12 @@ const connection = new mysql.createConnection({
 });
 
 
-
-connection.connect(function (err) {
-    if(err) throw err;
-
-    console.log(`Connection à la database ${config.BDD.database} réussi !`)
-})
-
-
 // Command Handler
 const commandFiles = fs.readdirSync(`./commands/`).filter(f => f.endsWith('.js'))
 for (const file of commandFiles) {
     const props = require(`./commands${file}`)
 
-    console.log(`La commandes ${file} est chargée avec succès !`)
+    console.log(`🤖 | La commandes ${file} est chargée avec succès !`)
     bot.commands.set(props.help.name, props)
 }
 
@@ -38,7 +30,7 @@ commandSubFolders.forEach(folder => {
     
     for (const file of commandFiles) {
         const props = require(`./commands/${folder}/${file}`)
-        console.log(`La commandes ${file} est chargée avec succès depuis ${folder} !`)
+        console.log(`🎊 | La commandes ${file} est chargée avec succès depuis ${folder} !`)
         bot.commands.set(props.help.name, props)
     }
 })
@@ -50,10 +42,10 @@ for (const file of eventFiles) {
     const event = require(`./events/${file}`)
     if(event.once) {
         bot.once(event.name, (...args) => event.execute(...args, bot))
-        console.log(`L'event ${file} as été chargé avec succès`)
+        console.log(`🎊 | L'event ${file} as été chargé avec succès`)
     } else {
         bot.on(event.name, (...args) => event.execute(...args, bot))
-        console.log(`L'event ${file} as été chargé avec succès`)
+        console.log(`🎊 | L'event ${file} as été chargé avec succès`)
     }
 }
 
@@ -65,10 +57,10 @@ eventSubFolders.forEach(folder => {
         const event = require(`./events/${folder}/${file}`)
         if(event.once) {
             bot.once(event.name, (...args) => event.execute(...args, bot))
-            console.log(`L'event ${file} as été chargé avec succès depuis ${folder}`)
+            console.log(`🎊 | L'event ${file} as été chargé avec succès depuis ${folder}`)
         } else {
             bot.on(event.name, (...args) => event.execute(...args, bot))
-            console.log(`L'event ${file} as été chargé avec succès depuis ${folder}`)
+            console.log(`🎊 | L'event ${file} as été chargé avec succès depuis ${folder}`)
         }
     }
 })
