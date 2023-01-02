@@ -4,9 +4,8 @@ const { MessageEmbed } = require('discord.js');
 
 
 // Connexion DB
-const db = new mysql.createConnection({
+const connection = new mysql.createConnection({
     host: config.BDD.host,
-    port: config.BDD.port,
     password: config.BDD.password,
     user: config.BDD.user,
     database: config.BDD.database
@@ -15,7 +14,9 @@ const db = new mysql.createConnection({
 module.exports= {
     name: 'messageDelete',
     execute(message, bot) {
-        db.query(`SELECT * FROM guildconfigurable WHERE guildId = "${message.guild.id}"`, (err, req) => {
+    
+
+connection.query(`SELECT * FROM guildconfigurable WHERE guildId = "${message.guild.id}"`, (err, req) => {
             const channel = req[0].logs;
 
             if(message.author.bot) return;

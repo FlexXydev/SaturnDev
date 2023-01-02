@@ -4,9 +4,8 @@ const { MessageEmbed } = require('discord.js');
 
 
 // Connexion DB
-const db = new mysql.createConnection({
+const connection = new mysql.createConnection({
     host: config.BDD.host,
-    port: config.BDD.port,
     password: config.BDD.password,
     user: config.BDD.user,
     database: config.BDD.database
@@ -19,7 +18,9 @@ exports.help = {
 
 exports.run = async (bot, message) => {
     if(message.member.permissions.has(['MANAGE_MESSAGES'])) {
-        db.query(`SELECT * FROM ticket WHERE guildId = "${message.guild.id}"`, (err, req) => {
+    
+
+connection.query(`SELECT * FROM ticket WHERE guildId = "${message.guild.id}"`, (err, req) => {
             const roles = req[0].roles;
             const user = message.mentions.users.first();
 

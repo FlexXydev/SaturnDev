@@ -3,9 +3,8 @@ const mysql = require('mysql');
 
 
 // Connexion DB
-const db = new mysql.createConnection({
+const connection = new mysql.createConnection({
     host: config.BDD.host,
-    port: config.BDD.port,
     password: config.BDD.password,
     user: config.BDD.user,
     database: config.BDD.database
@@ -38,5 +37,7 @@ exports.run = async (bot, message, args) => {
     message.guild.members.cache.get(user.id).timeout(null, `${reason} (Parole rendu par <@${message.author.id}>)`)
     message.channel.send(`<@${message.author.id}> à rendu la parole de **${user.tag}**.`)
 
-    db.query(`DELETE FROM mutes WHERE guildID = '${message.guild.id}' AND userID = '${user.id}'`);
+
+
+connection.query(`DELETE FROM mutes WHERE guildID = '${message.guild.id}' AND userID = '${user.id}'`);
 }

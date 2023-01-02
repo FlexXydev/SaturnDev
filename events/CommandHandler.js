@@ -2,9 +2,8 @@ const config = require('../config.json');
 const mysql = require('mysql');
 
 // Connexion DB
-const db = new mysql.createConnection({
+const connection = new mysql.createConnection({
     host: config.BDD.host,
-    port: config.BDD.port,
     password: config.BDD.password,
     user: config.BDD.user,
     database: config.BDD.database
@@ -14,7 +13,9 @@ const db = new mysql.createConnection({
 module.exports = {
     name: 'messageCreate',
     execute(message, bot) {
-        db.query(`SELECT * FROM guildconfigurable WHERE guildId = "${message.guild.id}"`, (err, req) => {
+    
+
+connection.query(`SELECT * FROM guildconfigurable WHERE guildId = "${message.guild.id}"`, (err, req) => {
             const prefix = req[0].cmdPrefix;
 
             if(message.author.bot) return;

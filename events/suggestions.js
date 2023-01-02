@@ -4,9 +4,8 @@ const { MessageEmbed } = require('discord.js');
 
 
 // Connexion DB
-const db = new mysql.createConnection({
+const connection = new mysql.createConnection({
     host: config.BDD.host,
-    port: config.BDD.port,
     password: config.BDD.password,
     user: config.BDD.user,
     database: config.BDD.database
@@ -18,7 +17,9 @@ module.exports = {
     execute(message, bot) {
         if(message.author.bot) return;
 
-        db.query(`SELECT * FROM guildconfigurable WHERE guildId = "${message.guild.id}"`, (err, req) => {
+    
+
+connection.query(`SELECT * FROM guildconfigurable WHERE guildId = "${message.guild.id}"`, (err, req) => {
             const channel = req[0].suggest;
 
             if(message.channel.id === channel) {
