@@ -33,11 +33,13 @@ module.exports = {
                 break;
         };
     }, 30000);
+    console.log("🌐 | Websocket listening on ws://localhost:8000/")
+    console.log("🌐 | Admin pannel listening on http://localhost:8000/")
+    
 
     setInterval(function() {
         console.log("❗ | Le bot va être déconnecter car ça fais 10 minutes que le bot est lançé");
       }, 574800);
-      
     }
     }
 

@@ -41,8 +41,9 @@ services:
       - db
     networks:
       - saturn
+    ports:
+      - 8000:8000
     container_name: Botdiscord
-    restart: always
 
 volumes:
   dbdata:

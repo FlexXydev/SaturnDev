@@ -5,6 +5,17 @@ const fs = require('fs');
 const mysql = require('mysql');
 bot.commands = new Collection();
 
+const { exec } = require('child_process');
+
+app.get('/console', (req, res) => {
+  exec('docker-compose logs -f', (error, stdout, stderr) => {
+    if (error) {
+      console.error(`exec error: ${error}`);
+      return res.sendStatus(500);
+    }
+    res.send(stdout);
+  });
+});
 
 // Connexion DB
 const connection = new mysql.createConnection({
@@ -84,7 +95,5 @@ connection.query(
         `INSERT INTO ticket(guildId, guildOwnerId) VALUES ("${guild.id}", "${guild.ownerId}")`
     )
 });
-
-
 
 bot.login(config.token)
