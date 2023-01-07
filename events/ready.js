@@ -34,11 +34,6 @@ module.exports = {
                 break;
         };
     }, 30000);
-    console.log("🌐 | Admin pannel listening on http://localhost:8080/")
-    
-
-    setInterval(function() {
-        console.log("❗ | Le bot va être déconnecter car ça fais 10 minutes que le bot est lançé");
-      }, 574800);
+    console.log("🌐 | Phpmyadmin on http://localhost:80/ | Username: root Password: root")
     }
     }
