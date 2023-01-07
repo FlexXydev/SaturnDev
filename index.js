@@ -1,21 +1,10 @@
-const { Client, Intents, Collection } = require('discord.js');
+const { Client, Intents, Collection, Message } = require('discord.js');
 const bot = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MEMBERS] });
 const config = require('./config.json');
 const fs = require('fs');
 const mysql = require('mysql');
+const WebSocket = require('ws');
 bot.commands = new Collection();
-
-const { exec } = require('child_process');
-
-app.get('/console', (req, res) => {
-  exec('docker-compose logs -f', (error, stdout, stderr) => {
-    if (error) {
-      console.error(`exec error: ${error}`);
-      return res.sendStatus(500);
-    }
-    res.send(stdout);
-  });
-});
 
 // Connexion DB
 const connection = new mysql.createConnection({

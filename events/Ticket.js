@@ -59,14 +59,14 @@ connection.query(`SELECT * FROM ticket WHERE guildId = "${interaction.guild.id}"
                     .setCustomId('category')
                     .setPlaceholder('Séléctionnez la catégorie du ticket')
                     .addOptions([{
-                        label: 'Haut Staff',
+                        label: 'Signaler un bug',
                         value: 'hstaff',
-                        emoji: '🪙',
+                        emoji: '👾',
                       },
                       {
-                        label: 'Staff',
+                        label: `Besoin d'aide`,
                         value: 'staff',
-                        emoji: '🎮',
+                        emoji: '🤖',
                       },
                       {
                         label: 'Autres',
@@ -91,7 +91,7 @@ connection.query(`SELECT * FROM ticket WHERE guildId = "${interaction.guild.id}"
                             msg.delete().then(async () => {
                                 const embed = new MessageEmbed()
                                     .setColor('6d6ee8')
-                                    .setAuthor({ name: 'Ticket', iconURL: 'https://i.imgur.com/oO5ZSRK.png'})
+                                    .setAuthor({ name: 'Ticket', iconURL: config.client.logo})
                                     .setDescription(`<@!${interaction.user.id}> A créé un ticket ${i.values[0]}`)
                                     .setFooter({ text: config.client.name, iconURL: config.client.logo})
                                     .setTimestamp();
@@ -188,7 +188,7 @@ connection.query(`SELECT * FROM ticket WHERE guildId = "${interaction.guild.id}"
                   .then(async () => {
                     const embed = new MessageEmbed()
                       .setColor('6d6ee8')
-                      .setAuthor({ name: 'Ticket', iconURL: 'https://i.imgur.com/oO5ZSRK.png'})
+                      .setAuthor({ name: 'Ticket', iconURL: config.client.logo})
                       .setDescription('```Contrôle des tickets```')
                       .setFooter({ text: config.client.name, iconURL: config.client.logo})
                       .setTimestamp();

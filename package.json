@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "start:docker": "docker build -t my-project . && docker compose up",
-    "ps": "docker ps"
+    "start:docker": "cls && docker compose build && cls && docker build -t consolews . && cls && docker compose up ",
+    "start:wsstart": "npm install ws && node server.js && node web.js"
   },
   "author": "FlexXy",
   "license": "ISC",

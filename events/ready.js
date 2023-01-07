@@ -1,5 +1,6 @@
 const config = require('../config.json');
 const discordjs = require('discord.js');
+const WebSocket = require('ws');
 let now = new Date();
 
 
@@ -33,8 +34,7 @@ module.exports = {
                 break;
         };
     }, 30000);
-    console.log("🌐 | Websocket listening on ws://localhost:8000/")
-    console.log("🌐 | Admin pannel listening on http://localhost:8000/")
+    console.log("🌐 | Admin pannel listening on http://localhost:8080/")
     
 
     setInterval(function() {
@@ -42,4 +42,3 @@ module.exports = {
       }, 574800);
     }
     }
-

@@ -1,24 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saturn Admin panel</title>
-</head>
-<script>
-async function getConsoleData() {
-  try {
-    const response = await axios.get('/console');
-    console.log(response.data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-setInterval(getConsoleData, 3000); // appelle la fonction toutes les 3 secondes
+<html>
+  <head>
+    <title>Console Log Output</title>
+  </head>
+  <body>
+    <div id="console"></div>
+    <script src="../Mon bot non skid/events/ready.js">
 
-</script>
-<body>
-  <a>nigga in paris</a>  
-</body>
+    </script>
+  </body>
 </html>

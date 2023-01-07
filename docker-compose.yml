@@ -1,12 +1,18 @@
 version: '3'
 
 services:
+  websocket-server:
+    image: consolews
+    command: npm run start:wsstart
+    ports:
+      - "8080:8080"
+    container_name: Websocket-events
+
   db:
     image: mariadb:10.3
     container_name: db
     restart: always
     command: --default-authentication-plugin=mysql_native_password
-
     environment:
     - MYSQL_ROOT_PASSWORD="root"
     - MYSQL_DATABASE="botdiscord"
@@ -34,16 +40,16 @@ services:
   saturn:
     build: 
       context: .
-    restart: always
     links:
       - db
+      - websocket-server
     depends_on:
       - db
+      - websocket-server
     networks:
       - saturn
-    ports:
-      - 8000:8000
     container_name: Botdiscord
+    restart: always
 
 volumes:
   dbdata:
