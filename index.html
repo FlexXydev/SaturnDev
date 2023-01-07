@@ -5,8 +5,15 @@
   </head>
   <body>
     <div id="console"></div>
-    <script src="../Mon bot non skid/events/ready.js">
+    <script>
+      // Créez une connexion websocket au serveur
+      const socket = new WebSocket('ws://localhost:8080');
 
+      // Lorsqu'un message est reçu sur la connexion websocket, ajoutez-le à la page
+      socket.onmessage = function(event) {
+        console.log(event.data);
+        document.getElementById('console').innerHTML += event.data + '<br>';
+      };
     </script>
   </body>
 </html>
