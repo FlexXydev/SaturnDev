@@ -1,20 +1,18 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
-    <title>Console Log Output</title>
+    <title>Console Output</title>
   </head>
   <body>
-    <div id="console"></div>
+    <div id="console-output"></div>
+    <a>Hello </a>
     <script>
-      // Créez une connexion websocket au serveur
-      const socket = new WebSocket('ws://localhost:8080');
+      const socket = new WebSocket('ws://localhost:8080/');
 
-      // Lorsqu'un message est reçu sur la connexion websocket, ajoutez-le à la page
       socket.onmessage = function(event) {
-        console.log(event.data);
-        document.getElementById('console').innerHTML += event.data + '<br>';
+        const consoleOutput = document.getElementById('console-output');
+        consoleOutput.innerHTML += event.data + '<br>';
       };
     </script>
-    <iframe src="https://discord.com/widget?id=1011629811921334343&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
   </body>
 </html>

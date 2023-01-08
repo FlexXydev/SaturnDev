@@ -1,10 +1,10 @@
-const WebSocket = require('ws');
-const socket = new WebSocket('ws://127.0.0.1:8080');
-
-socket.onopen = function(event) {
-  socket.send('Hello Server!');
-};
+const socket = new WebSocket('ws://localhost:8080/');
 
 socket.onmessage = function(event) {
-  console.log('Received message from server: ', event.data);
+  const consoleOutput = document.getElementById('console-output');
+  consoleOutput.innerHTML += event.data + '<br>';
 };
+
+function sendMessageToServer(message) {
+  socket.send(message);
+}
