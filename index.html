@@ -1,18 +1,22 @@
-<!doctype html>
 <html>
-  <head>
-    <title>Console Output</title>
-  </head>
-  <body>
-    <div id="console-output"></div>
-    <a>Hello </a>
-    <script>
-      const socket = new WebSocket('ws://localhost:8080/');
+<head>
+  <title>Journaux de conteneur Docker</title>
+</head>
+<body>
+  <h1>Journaux de conteneur Docker</h1>
+  <pre id="journaux"></pre>
 
-      socket.onmessage = function(event) {
-        const consoleOutput = document.getElementById('console-output');
-        consoleOutput.innerHTML += event.data + '<br>';
-      };
-    </script>
-  </body>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      // Récupérez les IDs de conteneur de l'URL
+      var containerIds = window.location.search.substring(1);
+      // Envoyez une demande HTTP au script côté serveur
+      $.get('/get-logs.php?' + containerIds, function(data) {
+        // Affichez les journaux dans l'élément pre
+        $('#journaux').text(data);
+      });
+    });
+  </script>
+</body>
 </html>
