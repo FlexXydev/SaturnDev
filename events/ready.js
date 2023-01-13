@@ -1,6 +1,5 @@
 const config = require('../config.json');
 const discordjs = require('discord.js');
-const WebSocket = require('ws');
 let now = new Date();
 
 
@@ -10,7 +9,6 @@ module.exports = {
     execute(bot) {
         // Login message
         console.log(`✅ | Connectés à ${bot.user.username}`)
-        console.log(`🤖 | Le bot est utilisé sur ${bot.guilds.cache.size} serveurs !`)
 
         // Activité temporaire
         console.log('⏱ | Les activtés sont entrains de charger. Lancement du status temporaire')

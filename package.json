@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "start:docker": "cls && docker compose build && cls && docker build -t consolews . && cls && docker compose up ",
-    "start:wsstart": "npm install ws && node server.js && node web.js"
+    "start:wsstart": "npm install express && node mainE.js"
   },
   "author": "FlexXy",
   "license": "ISC",
@@ -14,7 +14,6 @@
     "axios": "^1.2.2",
     "child_process": "^1.0.2",
     "discord.js": "^13.6.0",
-    "Express": "^3.0.1",
     "fs": "^0.0.1-security",
     "ms": "^2.1.3",
     "mysql": "^2.18.1",

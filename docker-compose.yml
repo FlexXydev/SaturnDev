@@ -5,8 +5,8 @@ services:
     image: consolews
     command: npm run start:wsstart
     ports:
-      - "8080:8080"
-    container_name: Websocket-events
+      - "90:90"
+    container_name: Webpannel
 
   db:
     image: mariadb:10.3

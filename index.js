@@ -3,7 +3,6 @@ const bot = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MES
 const config = require('./config.json');
 const fs = require('fs');
 const mysql = require('mysql');
-const Express = require('Express');
 bot.commands = new Collection();
 
 // Connexion DB
@@ -86,4 +85,3 @@ connection.query(
 });
 
 bot.login(config.token)
-
