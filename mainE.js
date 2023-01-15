@@ -3,6 +3,7 @@ const { Client, Intents, Collection, Message } = require('discord.js');
 const bot = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MEMBERS] });
 const app = express()
 const fs = require('fs')
+const exec = require("child_process").exec
 
 // Indispensable au bon fonctionnent du site
 app.enable("trust proxy") // Si l'ip est ::1 ça veut dire localhost
@@ -20,8 +21,16 @@ app.get("/", async (req, res) => {
     file = file.replace("$$guilds$$", guilds)
     file = file.replace("$$users$$", users)
 
-    res.send(file)
+
+    res.send(file);
 })
+//Commands list
+    const commands = exec('docker logs phpmyadmin', function (err,stdout, stderr){
+
+
+    console.log(stdout.toString('utf8'))
+});
+
 
 // Logs messages
 app.listen(process.env.PORT || 90, () => console.log(`🌐 | Admin panel sur http://localhost:90/`), console.log('🌐 | Admin panel correctement lancée'))
