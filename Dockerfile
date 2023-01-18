@@ -4,6 +4,8 @@ WORKDIR /app
 
 COPY . .
 
+VOLUME ["/app/logs"]
+
 RUN npm install
 
 EXPOSE 8080

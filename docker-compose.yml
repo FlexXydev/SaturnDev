@@ -5,7 +5,7 @@ services:
     image: consolews
     command: npm run start:wsstart
     ports:
-      - "90:90"
+      - "3000:3000"
     container_name: Webpannel
 
   db:
