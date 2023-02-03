@@ -1,10 +1,9 @@
-const { Client, Intents, Collection } = require('discord.js');
+const { Client, Intents, Collection, Message } = require('discord.js');
 const bot = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MEMBERS] });
 const config = require('./config.json');
 const fs = require('fs');
 const mysql = require('mysql');
 bot.commands = new Collection();
-
 
 // Connexion DB
 const connection = new mysql.createConnection({
@@ -84,7 +83,5 @@ connection.query(
         `INSERT INTO ticket(guildId, guildOwnerId) VALUES ("${guild.id}", "${guild.ownerId}")`
     )
 });
-
-
 
 bot.login(config.token)

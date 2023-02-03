@@ -4,8 +4,10 @@ WORKDIR /app
 
 COPY . .
 
+VOLUME ["/app/logs"]
+
 RUN npm install
 
-EXPOSE 8888
+EXPOSE 8080
 
 CMD ["node", "."]

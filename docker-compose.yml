@@ -1,21 +1,16 @@
 version: '3'
 
 services:
-  db:
-    image: mariadb:10.3
-    container_name: db
-    restart: always
-    command: --default-authentication-plugin=mysql_native_password
 
+  db:
+    image: mariadb:latest
+    ports:
+      - 3306:3306
     environment:
-    - MYSQL_ROOT_PASSWORD="root"
-    - MYSQL_DATABASE="botdiscord"
-    - MYSQL_PASSWORD="root"
-    - MYSQL_USER="botdiscord"
+      MARIADB_ROOT_PASSWORD: root
     volumes:
       - dbdata:/var/lib/mysql
-    ports:
-      - "3306:3306"
+    restart: always
     networks:
       - saturn
 
@@ -29,12 +24,13 @@ services:
     networks:
       - saturn
     container_name: phpmyadmin
+    depends_on:
+      - db
     
 
   saturn:
     build: 
       context: .
-    restart: always
     links:
       - db
     depends_on:
@@ -44,8 +40,52 @@ services:
     container_name: Botdiscord
     restart: always
 
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./etc/prometheus:/config/prometheus.yml
+      - prometheus-data:/config
+    restart: unless-stopped
+
+  grafana:
+    image: grafana/grafana-oss:latest
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana-data:/var/lib/grafana
+    restart: unless-stopped
+
+  node_exporter:
+    image: prom/node-exporter:latest
+    container_name: node_exporter
+    pid: host
+    restart: unless-stopped
+
+  cadvisor:
+    image: google/cadvisor:latest
+    container_name: cadvisor
+    volumes:
+      - ./:/rootfs:ro
+      - ./var/run:/var/run:ro
+      - ./sys:/sys:ro
+      - ./var/lib/docker/:/var/lib/docker:ro
+      - ./dev/disk/:/dev/disk:ro
+    devices:
+      - /dev/kmsg
+    ports:
+      - 8080:8080
+    
+
 volumes:
-  dbdata:
+  dbdata:  
+  prometheus-data:
+    driver: local
+  grafana-data:
+    driver: local
 
 networks:
   saturn:

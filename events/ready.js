@@ -1,5 +1,4 @@
 const config = require('../config.json');
-const discordjs = require('discord.js');
 let now = new Date();
 
 
@@ -9,7 +8,6 @@ module.exports = {
     execute(bot) {
         // Login message
         console.log(`✅ | Connectés à ${bot.user.username}`)
-        console.log(`🤖 | Le bot est utilisé sur ${bot.guilds.cache.size} serveurs !`)
 
         // Activité temporaire
         console.log('⏱ | Les activtés sont entrains de charger. Lancement du status temporaire')
@@ -33,11 +31,6 @@ module.exports = {
                 break;
         };
     }, 30000);
-
-    setInterval(function() {
-        console.log("❗ | Le bot va être déconnecter car ça fais 10 minutes que le bot est lançé");
-      }, 574800);
-      
+    console.log("🌐 | Phpmyadmin on http://localhost:80/ | Username: root Password: root")
     }
     }
-

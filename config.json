@@ -5,7 +5,7 @@
         "activityfr": "En Phase de test.",
         "activityen":"In test phase.",
         "name": "Saturn",
-        "logo": "https://cdn.discordapp.com/avatars/945224613057683516/ec1f0776d591952a4d020362b4192056.webp",
+        "logo": "https://cdn.discordapp.com/attachments/1058850800518053908/1061479392397758504/Nouveau_assets_Saturn.png",
         "prefix":"s!"
     },
 
@@ -17,5 +17,5 @@
         "database": "botdiscord"
     },
 
-    "token": "OTQ1MjI0NjEzMDU3NjgzNTE2.GzOzUA.7LPHyBcX9f-yBFHLNCLvT75oMyrD4I03b-mXuQ"
+    "token": "OTQ1MjI0NjEzMDU3NjgzNTE2.GoPEZq.Ps3vzTJdSRhSMXDMgHa0ZYirx7MZNvcoiD7QNs"
 }
