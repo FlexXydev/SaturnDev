@@ -1,5 +1,4 @@
 const config = require('../config.json');
-const discordjs = require('discord.js');
 let now = new Date();
 
 

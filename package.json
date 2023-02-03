@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "start:docker": "cls && docker compose build && cls && docker build -t consolews . && cls && docker compose up ",
+    "start:docker": "docker compose build && docker compose up ",
     "start:wsstart": "npm install express && node mainE.js"
   },
   "author": "FlexXy",
@@ -15,10 +15,14 @@
     "child_process": "^1.0.2",
     "console-log-html": "^2.0.2",
     "discord.js": "^13.6.0",
+    "dockerode": "^3.3.4",
+    "ejs": "^3.1.8",
     "express": "^4.18.2",
     "fs": "^0.0.1-security",
     "ms": "^2.1.3",
     "mysql": "^2.18.1",
+    "path": "^0.12.7",
+    "pug": "^3.0.2",
     "winston": "^3.8.2",
     "ws": "^8.11.0"
   }
